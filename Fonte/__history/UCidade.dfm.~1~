@@ -1,0 +1,84 @@
+object fmCidade: TfmCidade
+  Left = 0
+  Top = 0
+  Caption = 'Manuten'#231#227'o de Cidades'
+  ClientHeight = 288
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 64
+    Top = 58
+    Width = 37
+    Height = 13
+    Caption = 'Codigo:'
+  end
+  object Label2: TLabel
+    Left = 64
+    Top = 82
+    Width = 37
+    Height = 13
+    Caption = 'Cidade:'
+  end
+  object Label3: TLabel
+    Left = 64
+    Top = 112
+    Width = 13
+    Height = 13
+    Caption = 'RS'
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 64
+    Top = 24
+    Width = 240
+    Height = 25
+    DataSource = dm_dados.ds_cidade
+    TabOrder = 0
+  end
+  object DBEdit1: TDBEdit
+    Left = 107
+    Top = 55
+    Width = 54
+    Height = 21
+    DataField = 'CID_CODIGO'
+    DataSource = dm_dados.ds_cidade
+    TabOrder = 1
+  end
+  object DBEdit2: TDBEdit
+    Left = 107
+    Top = 82
+    Width = 121
+    Height = 21
+    DataField = 'CID_NOME'
+    DataSource = dm_dados.ds_cidade
+    TabOrder = 2
+  end
+  object DBEdit3: TDBEdit
+    Left = 107
+    Top = 109
+    Width = 121
+    Height = 21
+    DataField = 'CID_UF'
+    DataSource = dm_dados.ds_cidade
+    TabOrder = 3
+  end
+  object DBGrid1: TDBGrid
+    Left = 24
+    Top = 136
+    Width = 320
+    Height = 120
+    TabOrder = 4
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+end

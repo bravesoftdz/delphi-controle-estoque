@@ -1,0 +1,17 @@
+program Estoque;
+
+uses
+  Vcl.Forms,
+  UPrincipal in 'UPrincipal.pas' {fmPrincipal},
+  USobre in 'USobre.pas' {fmSobre},
+  UDM_dados in 'UDM_dados.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfmPrincipal, fmPrincipal);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

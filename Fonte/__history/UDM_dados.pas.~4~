@@ -1,0 +1,33 @@
+unit UDM_dados;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr, DbxDevartInterBase,
+  Data.FMTBcd, Datasnap.Provider;
+
+type
+  Tdm_dados = class(TDataModule)
+    base_dados_estoque: TSQLConnection;
+    tbl_cidade: TSQLTable;
+    tbl_cidadeCID_CODIGO: TIntegerField;
+    tbl_cidadeCID_NOME: TWideStringField;
+    tbl_cidadeCID_UF: TWideStringField;
+    ds_cidade: TDataSource;
+    DataSetProvider1: TDataSetProvider;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm_dados: Tdm_dados;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

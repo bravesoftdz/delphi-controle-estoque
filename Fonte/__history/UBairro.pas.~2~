@@ -1,0 +1,92 @@
+unit UBairro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls, IBX.IBCustomDataSet,
+  IBX.IBTable;
+
+type
+  TfmCidade1 = class(TForm)
+    DBNavigator1: TDBNavigator;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBGrid1: TDBGrid;
+    RadioGroup1: TRadioGroup;
+    RadioGroup2: TRadioGroup;
+    DBLookupComboBox1: TDBLookupComboBox;
+    GroupBox1: TGroupBox;
+    edit1: TEdit;
+    DBComboBox1: TDBComboBox;
+    tblAuxCidade: TIBTable;
+    tblAuxCidadeCID_CODIGO: TIntegerField;
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fmCidade1: TfmCidade1;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM_dados;
+
+procedure TfmCidade1.FormShow(Sender: TObject);
+begin
+
+ dm_dados.tbl_cidade.Open;
+
+end;
+
+procedure TfmCidade1.RadioGroup1Click(Sender: TObject);
+begin
+      case RadioGroup1.itemindex of
+      0:dm_dados.tbl_cidade.IndexName:='ind_cod_cidade';
+      1:dm_dados.tbl_cidade.IndexName:='ind_nome_cid';
+
+      end;
+
+end;
+
+procedure TfmCidade1.DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+var ultcod:Integer;
+begin
+  if dm_dados.ds_cidade.State in [dsInsert] then
+  Begin
+      tblAuxCidade.Open;
+      tblAuxCidade.last;
+      ultcod:=tblAuxCidadeCID_CODIGO.value+1;
+      dm_dados.tbl_cidadeCID_CODIGO.Value:=ultcod;
+      tblAuxCidade.Close;
+      dbedit2.SetFocus;
+  end;
+end;
+
+procedure TfmCidade1.Edit1Change(Sender: TObject);
+begin
+   dm_dados.tbl_cidade.Locate('cid_nome',edit1.text,[loPartialKey,loCaseInsensitive]);
+end;
+
+procedure TfmCidade1.FormClose(Sender: TObject; var Action: TCloseAction);
+
+begin
+ dm_dados.tbl_cidade.Close;
+end;
+
+
+
+end.

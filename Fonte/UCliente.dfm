@@ -1,0 +1,249 @@
+object fmCidade1: TfmCidade1
+  Left = 0
+  Top = 0
+  Caption = 'Manuten'#231#227'o de Cidades'
+  ClientHeight = 341
+  ClientWidth = 487
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 16
+    Top = 111
+    Width = 37
+    Height = 13
+    Caption = 'Codigo:'
+  end
+  object Label2: TLabel
+    Left = 16
+    Top = 138
+    Width = 37
+    Height = 13
+    Caption = 'Cidade:'
+  end
+  object Label3: TLabel
+    Left = 16
+    Top = 167
+    Width = 13
+    Height = 13
+    Caption = 'RS'
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 16
+    Top = 71
+    Width = 240
+    Height = 25
+    DataSource = dm_dados.ds_cidade
+    Hints.Strings = (
+      'Primeiro Registro'
+      'Registro Anterior'
+      'Proximo Registro'
+      'Ultimo Registro'
+      'Novo Registro'
+      'Excluir Registro'
+      'Editar Registro'
+      'Gravar Registro'
+      'Cancelar'
+      'Atualizar Dados'
+      'Aplicar Mudan'#231'as'
+      'Cancelar Mudan'#231'as')
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    OnClick = DBNavigator1Click
+  end
+  object DBEdit1: TDBEdit
+    Left = 59
+    Top = 108
+    Width = 54
+    Height = 21
+    DataField = 'CID_CODIGO'
+    DataSource = dm_dados.ds_cidade
+    Enabled = False
+    TabOrder = 1
+  end
+  object DBEdit2: TDBEdit
+    Left = 59
+    Top = 135
+    Width = 121
+    Height = 21
+    DataField = 'CID_NOME'
+    DataSource = dm_dados.ds_cidade
+    TabOrder = 2
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 191
+    Width = 449
+    Height = 137
+    DataSource = dm_dados.ds_cidade
+    TabOrder = 3
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CID_CODIGO'
+        ImeName = 'Codigo'
+        Title.Caption = 'Codigo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CID_NOME'
+        Title.Caption = 'Nome'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CID_UF'
+        Title.Caption = 'UF'
+        Visible = True
+      end>
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 304
+    Top = 32
+    Width = 165
+    Height = 64
+    Caption = 'Ordem de VIZUALIZA'#199#195'O'
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      'Codigo '
+      'Nome')
+    TabOrder = 4
+    OnClick = RadioGroup1Click
+  end
+  object RadioGroup2: TRadioGroup
+    Left = 284
+    Top = 117
+    Width = 185
+    Height = 68
+    Caption = 'Consulta via Sele'#231#227'o'
+    TabOrder = 5
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 292
+    Top = 144
+    Width = 165
+    Height = 21
+    KeyField = 'CID_CODIGO'
+    ListField = 'CID_NOME'
+    ListSource = dm_dados.ds_cidade
+    TabOrder = 6
+  end
+  object GroupBox1: TGroupBox
+    Left = 16
+    Top = 16
+    Width = 240
+    Height = 49
+    Caption = 'Consulta via Digita'#231#227'o'
+    TabOrder = 7
+    object edit1: TEdit
+      Left = 16
+      Top = 16
+      Width = 209
+      Height = 21
+      OEMConvert = True
+      TabOrder = 0
+      OnChange = Edit1Change
+    end
+  end
+  object DBComboBox1: TDBComboBox
+    Left = 59
+    Top = 162
+    Width = 54
+    Height = 21
+    DataField = 'CID_UF'
+    DataSource = dm_dados.ds_cidade
+    Items.Strings = (
+      'AC'
+      'AL'
+      'AM'
+      'AP'
+      'BA'
+      'CE'
+      'DF'
+      'ES'
+      'GO'
+      'MA'
+      'MG'
+      'MS'
+      'MT'
+      'PA'
+      'PB'
+      'PE'
+      'PI'
+      'PR'
+      'RJ'
+      'RN'
+      'RO'
+      'RR'
+      'RS'
+      'SC'
+      'SE'
+      'SP'
+      'TO')
+    TabOrder = 8
+  end
+  object tblAuxCidade: TIBTable
+    Database = dm_dados.base_dados_estoque
+    Transaction = dm_dados.IBTrans
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    FieldDefs = <
+      item
+        Name = 'CID_CODIGO'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CID_NOME'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'CID_UF'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 2
+      end>
+    IndexDefs = <
+      item
+        Name = 'CIDADE_PK'
+        Fields = 'CID_CODIGO'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'IND_COD_CIDADE'
+        Fields = 'CID_CODIGO'
+      end
+      item
+        Name = 'IND_NOME_CID'
+        Fields = 'CID_NOME'
+      end>
+    StoreDefs = True
+    TableName = 'TBL_CIDADE'
+    UniDirectional = False
+    Left = 120
+    Top = 104
+    object tblAuxCidadeCID_CODIGO: TIntegerField
+      FieldName = 'CID_CODIGO'
+      Required = True
+    end
+  end
+end

@@ -1,0 +1,19 @@
+program Estoque;
+
+uses
+  Vcl.Forms,
+  UPrincipal in 'UPrincipal.pas' {fmPrincipal},
+  USobre in 'USobre.pas' {fmSobre},
+  UDM_dados in 'UDM_dados.pas' {dm_dados: TDataModule},
+  UBairro in 'UBairro.pas' {fmCidade1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfmPrincipal, fmPrincipal);
+  Application.CreateForm(Tdm_dados, dm_dados);
+  Application.CreateForm(TfmCidade1, fmCidade1);
+  Application.Run;
+end.

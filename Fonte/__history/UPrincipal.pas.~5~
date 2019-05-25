@@ -1,0 +1,60 @@
+unit UPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.ComCtrls;
+
+type
+  TfmPrincipal = class(TForm)
+    Panel1: TPanel;
+    Button1: TButton;
+    MainMenu1: TMainMenu;
+    Cadastros1: TMenuItem;
+    Consultas1: TMenuItem;
+    Relatrio1: TMenuItem;
+    Sair1: TMenuItem;
+    Clientes1: TMenuItem;
+    Fornecedores1: TMenuItem;
+    Cidades1: TMenuItem;
+    Estoque1: TMenuItem;
+    Estoque2: TMenuItem;
+    Entrada1: TMenuItem;
+    Saida1: TMenuItem;
+    Sair2: TMenuItem;
+    Panel2: TPanel;
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    Button2: TButton;
+    procedure Timer1Timer(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fmPrincipal: TfmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses USobre;
+
+procedure TfmPrincipal.Button2Click(Sender: TObject);
+ var sobre(TfrmSobre);
+begin
+        sobre:=Tfrmsobre.create(self);
+end;
+
+procedure TfmPrincipal.Timer1Timer(Sender: TObject);
+begin
+statusbar1.panels[2].Text:= 'Hora.: '+ timetostr(time);
+statusbar1.panels[3].Text:= 'Data.: '+ datetostr(date);
+end;
+
+end.

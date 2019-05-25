@@ -1,0 +1,101 @@
+object dm_dados: Tdm_dados
+  OldCreateOrder = False
+  Height = 304
+  Width = 190
+  object IBTrans: TIBTransaction
+    Active = True
+    DefaultDatabase = base_dados_estoque
+    Left = 112
+    Top = 32
+  end
+  object tbl_cidade: TIBTable
+    Database = base_dados_estoque
+    Transaction = IBTrans
+    BufferChunks = 1000
+    CachedUpdates = False
+    FieldDefs = <
+      item
+        Name = 'CID_CODIGO'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CID_NOME'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'CID_UF'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 2
+      end>
+    IndexDefs = <
+      item
+        Name = 'CIDADE_PK'
+        Fields = 'CID_CODIGO'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'IND_COD_CIDADE'
+        Fields = 'CID_CODIGO'
+      end
+      item
+        Name = 'IND_NOME_CID'
+        Fields = 'CID_NOME'
+      end>
+    IndexName = 'IND_COD_CIDADE'
+    StoreDefs = True
+    TableName = 'TBL_CIDADE'
+    UniDirectional = False
+    Left = 40
+    Top = 88
+    object tbl_cidadeCID_CODIGO: TIntegerField
+      FieldName = 'CID_CODIGO'
+      Required = True
+    end
+    object tbl_cidadeCID_NOME: TIBStringField
+      FieldName = 'CID_NOME'
+      Required = True
+      Size = 30
+    end
+    object tbl_cidadeCID_UF: TIBStringField
+      FieldName = 'CID_UF'
+      Required = True
+      Size = 2
+    end
+  end
+  object ds_cidade: TDataSource
+    DataSet = tbl_cidade
+    Left = 104
+    Top = 96
+  end
+  object base_dados_estoque: TIBDatabase
+    Connected = True
+    DatabaseName = 'C:\Estoque\Dados\ESTOQUE.GDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBTrans
+    ServerType = 'IBServer'
+    Left = 40
+    Top = 32
+  end
+  object tblBairro: TIBTable
+    Database = base_dados_estoque
+    Transaction = IBTrans
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'BAIRRO'
+    UniDirectional = False
+    Left = 40
+    Top = 152
+  end
+  object ds_bairro: TDataSource
+    DataSet = tblBairro
+    Left = 104
+    Top = 152
+  end
+end

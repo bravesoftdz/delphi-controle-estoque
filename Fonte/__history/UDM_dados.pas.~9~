@@ -1,0 +1,34 @@
+unit UDM_dados;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr, DbxDevartInterBase,
+  Data.FMTBcd, Datasnap.Provider, Datasnap.DBClient, IBX.IBCustomDataSet,
+  IBX.IBTable, IBX.IBDatabase;
+
+type
+  Tdm_dados = class(TDataModule)
+    IBTrans: TIBTransaction;
+    tbl_cidade: TIBTable;
+    tbl_cidadeCID_CODIGO: TIntegerField;
+    tbl_cidadeCID_NOME: TIBStringField;
+    tbl_cidadeCID_UF: TIBStringField;
+    ds_cidade: TDataSource;
+    base_dados_estoque: TIBDatabase;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm_dados: Tdm_dados;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

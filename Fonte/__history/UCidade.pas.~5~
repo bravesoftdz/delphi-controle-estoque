@@ -1,0 +1,64 @@
+unit UCidade;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TfmCidade = class(TForm)
+    DBNavigator1: TDBNavigator;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBGrid1: TDBGrid;
+    RadioGroup1: TRadioGroup;
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure RadioGroup1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fmCidade: TfmCidade;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM_dados;
+
+procedure TfmCidade.FormShow(Sender: TObject);
+begin
+
+ dm_dados.tbl_cidade.Open;
+
+end;
+
+procedure TfmCidade.RadioGroup1Click(Sender: TObject);
+begin
+      case RadioGroup1.itemindex of
+      0:dm_dados.tbl_cidade.IndexName:='ind_cod_cidade';
+      1:dm_dados.tbl_cidade.IndexName:='ind_nome_cid';
+
+      end;
+
+end;
+
+procedure TfmCidade.FormClose(Sender: TObject; var Action: TCloseAction);
+
+begin
+ dm_dados.tbl_cidade.Close;
+end;
+
+
+
+end.

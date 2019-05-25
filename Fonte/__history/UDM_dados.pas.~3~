@@ -1,0 +1,26 @@
+unit UDM_dados;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr;
+
+type
+  Tdm_dados = class(TDataModule)
+    SQLConnection1: TSQLConnection;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm_dados: Tdm_dados;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,52 @@
+unit UCidade;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TfmCidade = class(TForm)
+    DBNavigator1: TDBNavigator;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBGrid1: TDBGrid;
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fmCidade: TfmCidade;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM_dados;
+
+procedure TfmCidade.FormShow(Sender: TObject);
+begin
+
+ dm_dados.tbl_cidade.Open;
+
+end;
+
+procedure TfmCidade.FormClose(Sender: TObject; var Action: TCloseAction);
+
+begin
+ dm_dados.tbl_cidade.Close;
+end;
+
+
+
+end.
