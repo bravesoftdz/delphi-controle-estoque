@@ -26,6 +26,22 @@ type
     tblLogradouroLOG_LOGRADOURO: TIBStringField;
     tblCliente: TIBTable;
     dsCliente: TDataSource;
+    tblClienteCLI_CODIGO: TIntegerField;
+    tblClienteCLI_NOME: TIBStringField;
+    tblClienteCLI_LOGRADOURO: TIntegerField;
+    tblClienteCLI_NUMERO: TIBStringField;
+    tblClienteCLI_BAIRRO: TIntegerField;
+    tblClienteCLI_CIDADE: TIntegerField;
+    tblClienteCLI_CEP: TIBStringField;
+    tblClienteCLI_DATANASC: TDateTimeField;
+    tblClienteCLI_COMPLEMENTO: TIBStringField;
+    tblClienteCLI_FOTO: TIBStringField;
+    tblClienteCLI_CPF: TIBStringField;
+    tblClienteCLI_RG: TIBStringField;
+    tblClienteCLI_FONECOM: TIBStringField;
+    tblClienteCLI_FONECEL: TIBStringField;
+    tblClienteCLI_OBS: TIBStringField;
+    tblClientePES_EMAIL: TIBStringField;
   private
     { Private declarations }
   public

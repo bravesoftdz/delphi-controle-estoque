@@ -9,11 +9,10 @@ uses
   IBX.IBTable;
 
 type
-  TfmCidade1 = class(TForm)
+  TfmCliente = class(TForm)
     DBNavigator1: TDBNavigator;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBGrid1: TDBGrid;
@@ -22,9 +21,54 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     GroupBox1: TGroupBox;
     edit1: TEdit;
-    DBComboBox1: TDBComboBox;
-    tblAuxCidade: TIBTable;
-    tblAuxCidadeCID_CODIGO: TIntegerField;
+    tblAuxCliente: TIBTable;
+    tblAuxClienteCLI_CODIGO: TIntegerField;
+    tblAuxClienteCLI_NOME: TIBStringField;
+    tblAuxClienteCLI_LOGRADOURO: TIntegerField;
+    tblAuxClienteCLI_NUMERO: TIBStringField;
+    tblAuxClienteCLI_BAIRRO: TIntegerField;
+    tblAuxClienteCLI_CIDADE: TIntegerField;
+    tblAuxClienteCLI_CEP: TIBStringField;
+    tblAuxClienteCLI_DATANASC: TDateTimeField;
+    tblAuxClienteCLI_COMPLEMENTO: TIBStringField;
+    tblAuxClienteCLI_FOTO: TIBStringField;
+    tblAuxClienteCLI_CPF: TIBStringField;
+    tblAuxClienteCLI_RG: TIBStringField;
+    tblAuxClienteCLI_FONECOM: TIBStringField;
+    tblAuxClienteCLI_FONECEL: TIBStringField;
+    tblAuxClienteCLI_OBS: TIBStringField;
+    tblAuxClientePES_EMAIL: TIBStringField;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    Label6: TLabel;
+    DBEdit6: TDBEdit;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    DBEdit9: TDBEdit;
+    Label10: TLabel;
+    DBEdit10: TDBEdit;
+    Label11: TLabel;
+    DBEdit11: TDBEdit;
+    Label12: TLabel;
+    DBEdit12: TDBEdit;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    ComboBox3: TComboBox;
+    Label13: TLabel;
+    DBEdit13: TDBEdit;
+    Label14: TLabel;
+    DBEdit14: TDBEdit;
+    Label15: TLabel;
+    DBEdit15: TDBEdit;
+    Label16: TLabel;
+    DBEdit16: TDBEdit;
+    DBEdit8: TDBEdit;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure RadioGroup1Click(Sender: TObject);
@@ -37,7 +81,7 @@ type
   end;
 
 var
-  fmCidade1: TfmCidade1;
+  fmCliente: TfmCliente;
 
 implementation
 
@@ -45,46 +89,46 @@ implementation
 
 uses UDM_dados;
 
-procedure TfmCidade1.FormShow(Sender: TObject);
+procedure TfmCliente.FormShow(Sender: TObject);
 begin
 
- dm_dados.tbl_cidade.Open;
+ dm_dados.tblCliente.Open;
 
 end;
 
-procedure TfmCidade1.RadioGroup1Click(Sender: TObject);
+procedure TfmCliente.RadioGroup1Click(Sender: TObject);
 begin
       case RadioGroup1.itemindex of
-      0:dm_dados.tbl_cidade.IndexName:='ind_cod_cidade';
-      1:dm_dados.tbl_cidade.IndexName:='ind_nome_cid';
+      0:dm_dados.tblCliente.IndexName:='cli_indcod';
+      1:dm_dados.tblCliente.IndexName:='cli_indnome';
 
       end;
 
 end;
 
-procedure TfmCidade1.DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+procedure TfmCliente.DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
 var ultcod:Integer;
 begin
-  if dm_dados.ds_cidade.State in [dsInsert] then
+  if dm_dados.dsCliente.State in [dsInsert] then
   Begin
-      tblAuxCidade.Open;
-      tblAuxCidade.last;
-      ultcod:=tblAuxCidadeCID_CODIGO.value+1;
-      dm_dados.tbl_cidadeCID_CODIGO.Value:=ultcod;
-      tblAuxCidade.Close;
+      tblAuxCliente.Open;
+      tblAuxCliente.last;
+      ultcod:=tblAuxClienteCLI_CODIGO.value+1;
+      dm_dados.tblClienteCLI_CODIGO.Value:=ultcod;
+      tblAuxCliente.Close;
       dbedit2.SetFocus;
   end;
 end;
 
-procedure TfmCidade1.Edit1Change(Sender: TObject);
+procedure TfmCliente.Edit1Change(Sender: TObject);
 begin
-   dm_dados.tbl_cidade.Locate('cid_nome',edit1.text,[loPartialKey,loCaseInsensitive]);
+   dm_dados.tblCliente.Locate('cli_nome',edit1.text,[loPartialKey,loCaseInsensitive]);
 end;
 
-procedure TfmCidade1.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfmCliente.FormClose(Sender: TObject; var Action: TCloseAction);
 
 begin
- dm_dados.tbl_cidade.Close;
+ dm_dados.tblCliente.Close;
 end;
 
 

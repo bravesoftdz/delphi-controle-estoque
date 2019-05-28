@@ -33,6 +33,7 @@ type
     procedure Cidades1Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
     procedure Ba1Click(Sender: TObject);
+    procedure Clientes1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,7 +45,7 @@ var
 
 implementation
 
-uses USobre, UCidade, UBairro;
+uses USobre, UCidade, UBairro, UCliente;
 
 {$R *.dfm}
 
@@ -67,6 +68,13 @@ var cidades:TfmCidade;
 begin
     cidades:=TfmCidade.create(self);
     cidades.ShowModal;
+end;
+
+procedure TfmPrincipal.Clientes1Click(Sender: TObject);
+var clientes:TfmCliente;
+begin
+    clientes:=TfmCliente.Create(self);
+    clientes.ShowModal;
 end;
 
 procedure TfmPrincipal.Sair1Click(Sender: TObject);

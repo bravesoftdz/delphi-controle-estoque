@@ -110,7 +110,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UCliente.pas">
-            <Form>fmCidade1</Form>
+            <Form>fmCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UCidade.pas">

@@ -141,6 +141,71 @@ object dm_dados: Tdm_dados
     UniDirectional = False
     Left = 40
     Top = 272
+    object tblClienteCLI_CODIGO: TIntegerField
+      FieldName = 'CLI_CODIGO'
+      Required = True
+    end
+    object tblClienteCLI_NOME: TIBStringField
+      FieldName = 'CLI_NOME'
+      Required = True
+      Size = 40
+    end
+    object tblClienteCLI_LOGRADOURO: TIntegerField
+      FieldName = 'CLI_LOGRADOURO'
+      Required = True
+    end
+    object tblClienteCLI_NUMERO: TIBStringField
+      FieldName = 'CLI_NUMERO'
+      Required = True
+      Size = 10
+    end
+    object tblClienteCLI_BAIRRO: TIntegerField
+      FieldName = 'CLI_BAIRRO'
+      Required = True
+    end
+    object tblClienteCLI_CIDADE: TIntegerField
+      FieldName = 'CLI_CIDADE'
+      Required = True
+    end
+    object tblClienteCLI_CEP: TIBStringField
+      FieldName = 'CLI_CEP'
+      Size = 10
+    end
+    object tblClienteCLI_DATANASC: TDateTimeField
+      FieldName = 'CLI_DATANASC'
+      Required = True
+    end
+    object tblClienteCLI_COMPLEMENTO: TIBStringField
+      FieldName = 'CLI_COMPLEMENTO'
+      Size = 10
+    end
+    object tblClienteCLI_FOTO: TIBStringField
+      FieldName = 'CLI_FOTO'
+      Size = 40
+    end
+    object tblClienteCLI_CPF: TIBStringField
+      FieldName = 'CLI_CPF'
+      Size = 14
+    end
+    object tblClienteCLI_RG: TIBStringField
+      FieldName = 'CLI_RG'
+    end
+    object tblClienteCLI_FONECOM: TIBStringField
+      FieldName = 'CLI_FONECOM'
+      Size = 16
+    end
+    object tblClienteCLI_FONECEL: TIBStringField
+      FieldName = 'CLI_FONECEL'
+      Size = 16
+    end
+    object tblClienteCLI_OBS: TIBStringField
+      FieldName = 'CLI_OBS'
+      Size = 40
+    end
+    object tblClientePES_EMAIL: TIBStringField
+      FieldName = 'PES_EMAIL'
+      Size = 50
+    end
   end
   object dsCliente: TDataSource
     DataSet = tblCliente

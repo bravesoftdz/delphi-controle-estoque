@@ -78,6 +78,7 @@ object fmPrincipal: TfmPrincipal
       Caption = 'Cadastros'
       object Clientes1: TMenuItem
         Caption = 'Clientes'
+        OnClick = Clientes1Click
       end
       object Fornecedores1: TMenuItem
         Caption = 'Fornecedores'
